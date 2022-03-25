@@ -2,13 +2,20 @@ package main.java.jm.task.core.jdbc;
 
 import main.java.jm.task.core.jdbc.model.User;
 import main.java.jm.task.core.jdbc.service.UserServiceImpl;
-
 import java.sql.*;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // реализуйте алгоритм здесь
+        /*
+
+        2. Сделать рабочие транзакции самостоятельно, отключить autocommit
+
+
+        4. UserDaoJDBCImpl userDaoJDBC; исправь, наследуемся только от самых общих классов
+
+        5. В Util не пробрасывай исключения выше, обработай их в этом же классе, добавь подключение Driver*/
         UserServiceImpl userService = new UserServiceImpl();
 
         userService.createUsersTable();
