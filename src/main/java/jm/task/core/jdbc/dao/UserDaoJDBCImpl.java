@@ -1,11 +1,11 @@
-package main.java.jm.task.core.jdbc.dao;
-
-import main.java.jm.task.core.jdbc.model.User;
-import main.java.jm.task.core.jdbc.util.Util;
+package jm.task.core.jdbc.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 
 public class UserDaoJDBCImpl implements UserDao {
     private final Util mysqlUtil;
