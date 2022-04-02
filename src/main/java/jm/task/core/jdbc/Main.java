@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // реализуйте алгоритм здесь
 
-        UserServiceImpl userService = new UserServiceImpl();
+            UserServiceImpl userService = new UserServiceImpl();
 
         userService.createUsersTable();
 

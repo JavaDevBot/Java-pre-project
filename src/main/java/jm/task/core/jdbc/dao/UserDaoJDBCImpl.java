@@ -1,3 +1,4 @@
+/*
 package jm.task.core.jdbc.dao;
 
 import java.sql.*;
@@ -151,3 +152,4 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 }
+*/

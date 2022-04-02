@@ -4,11 +4,15 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
+    private SessionFactory sessionFactory = new Util("root", "rootroot",
+            "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory();
+
     public UserDaoHibernateImpl() {
 
     }
@@ -17,8 +21,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
         Transaction transaction = null;
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
@@ -36,8 +39,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void dropUsersTable() {
         Transaction transaction = null;
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
@@ -55,8 +57,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) {
         Transaction transaction = null;
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
@@ -74,8 +75,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void removeUserById(long id) {
         Transaction transaction = null;
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
@@ -95,8 +95,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from Users", User.class).list();
         }
     }
@@ -104,8 +103,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void cleanUsersTable() {
         Transaction transaction = null;
-        try (Session session = new Util("root", "rootroot",
-                "jdbc:mysql://localhost:3306/phones_magazine", Util.Drivers.MYSQL).getSessionFactory().openSession()) {
+        try (Session session = sessionFactory.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object

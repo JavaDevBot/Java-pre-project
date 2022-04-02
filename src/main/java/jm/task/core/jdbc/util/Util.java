@@ -1,6 +1,7 @@
 package jm.task.core.jdbc.util;
 
 import jm.task.core.jdbc.model.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -42,7 +43,7 @@ public class Util {
         this.DATABASE_DRIVER = driver.getDriver();
     }
 
-    public Connection createConnection() {
+    /*public Connection createConnection() {
         try {
             Class.forName(DATABASE_DRIVER);
             Connection connection = DriverManager.getConnection(connectionURL, userName, userPassword);
@@ -52,7 +53,7 @@ public class Util {
             e.printStackTrace();
             return null;
         }
-    }
+    }*/
 
     public SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
